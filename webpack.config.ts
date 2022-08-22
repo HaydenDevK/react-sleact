@@ -18,6 +18,7 @@ const config: Configuration = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
+      // 경로 작성 시 생략해서 쓰는 그거
       '@hooks': path.resolve(__dirname, 'hooks'),
       '@components': path.resolve(__dirname, 'components'),
       '@layouts': path.resolve(__dirname, 'layouts'),
@@ -75,7 +76,7 @@ const config: Configuration = {
     publicPath: '/dist/',
   },
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: true, // historuApi라는 걸 써서 본래 존재하지 않는 주소의 개념을 사기쳐주는 설정. (SPA에서는 실제 서버에는 local:3090 외에 주소가 존재하지 않기에 index.html로만 접근하는데, dev 서버가 실서버에 없는 가짜 주소(path)를 있는 것처럼 해준다
     port: 3090,
     devMiddleware: { publicPath: '/dist/' },
     static: { directory: path.resolve(__dirname) },
